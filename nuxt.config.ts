@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 	// 	assets: '/assets',
 	// 	public: '/public',
 	// },
+	ssr: false,
 	publicRuntimeConfig: {
 		API_BASE_URL: process.env.API_BASE_URL,
 	},
