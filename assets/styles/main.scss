@@ -1,0 +1,34 @@
+$primary: #eaeaea;
+$secondary: #e4a79d;
+body {
+	background-color: #eaeaea;
+	#snack-provider {
+		position: fixed;
+		bottom: 20px;
+		left: 40px;
+		max-height: fit-content;
+		max-width: 400px;
+		z-index: 9999;
+	}
+	.global-snackbar {
+		padding: 16px 12px;
+		border-radius: 6px;
+		max-width: 400px;
+		min-width: 280px;
+		line-height: 20px;
+		font-size: 16px;
+		margin-bottom: 12px;
+		&.snack-error {
+			background-color: rgba(219, 73, 73, 0.787);
+			color: #fff;
+		}
+		&.snack-success {
+			background-color: rgba(46, 149, 45, 0.787);
+			color: #fff;
+		}
+		&.snack-info {
+			background-color: rgba(58, 155, 220, 0.787);
+			color: #fff;
+		}
+	}
+}
