@@ -3,6 +3,7 @@
 		<v-btn color="primary" dark @click="setLogin" :loading="loadingLogin">Set login</v-btn>
 		<v-btn color="primary" dark @click="getUserInfo" :loading="loadingLogin">get user</v-btn>
 		<v-btn color="primary" dark @click="$snackError('Hehehe')">Click me</v-btn>
+		<v-btn color="primary" dark @click="redirect('/')">Home</v-btn>
 	</div>
 </template>
 
@@ -55,6 +56,7 @@
 					console.log(res);
 				});
 			};
+
 			return {
 				loadingLogin,
 				setLogin,
@@ -69,7 +71,11 @@
 				title: 'Đăng nhập',
 			};
 		},
-		methods: {},
+		methods: {
+			redirect(url: string) {
+				this.$route.push(url);
+			},
+		},
 	};
 </script>
 
