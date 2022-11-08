@@ -23,6 +23,10 @@
 	import { useRouter, useRoute } from 'vue-router';
 	export default {
 		setup() {
+			definePageMeta({
+				middleware: ['auth'],
+				// or middleware: 'auth'
+			});
 			const router = useRouter();
 			return {
 				router,
