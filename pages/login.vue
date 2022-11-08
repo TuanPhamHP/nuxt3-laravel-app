@@ -1,16 +1,18 @@
 <template>
 	<div>
 		<div class="login-container mx-auto mt-0 mt-lg-6" style="max-width: 600px">
-			<v-form ref="form" v-model="valid" lazy-validation>
+			<v-form ref="form" :autofocus="true" v-model="valid" lazy-validation>
 				<v-text-field v-model="email" :rules="emailRules" label="E-mail" required class="mb-3"></v-text-field>
 				<v-text-field
 					v-model="password"
 					:rules="passwordRules"
 					type="password"
 					label="Password"
+					@keyup.enter="validate"
 					required
 					class="mb-3"
 				></v-text-field>
+				<!-- <v-checkbox v-model="remember" label="Nhớ đăng nhập" color="primary" hide-details=""></v-checkbox> -->
 				<v-btn
 					color="primary"
 					class="mx-auto d-block w-100"
@@ -48,8 +50,9 @@
 			const useAuth = auth(runtimeConfig);
 			const useAuthStore = authStore();
 			const loadingLogin = ref(false);
-			const email = ref<string>('');
-			const password = ref<string>('');
+			// const remember = ref(true);
+			const email = ref<string>('tuanp.fe.dev@gmail.com');
+			const password = ref<string>('123qaz');
 
 			const setLogin = async () => {
 				loadingLogin.value = true;
@@ -74,6 +77,7 @@
 					token: token,
 				});
 				$snack('Đăng nhập thành công', 'success');
+
 				router.push('/');
 			};
 			const getUserInfo = async () => {
@@ -88,6 +92,7 @@
 				router,
 				email,
 				password,
+				// remember,
 				setLogin,
 				getUserInfo,
 			};
@@ -123,4 +128,4 @@
 	};
 </script>
 
-<style></style>
+<style lang="scss"></style>

@@ -19,17 +19,20 @@
 	</div>
 </template>
 <script lang="ts">
-	import { useRouter, useRoute } from 'vue-router';
+	import { useRouter } from 'vue-router';
+	import { authStore } from '@/store';
 	export default {
 		setup() {
 			const router = useRouter();
+			const useAuthStore = authStore();
 			return {
 				router,
+				useAuthStore,
 			};
 		},
 		head() {
 			return {
-				title: 'Chào bạn',
+				title: `Trang chủ`,
 			};
 		},
 		data() {

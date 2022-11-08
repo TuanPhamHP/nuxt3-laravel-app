@@ -14,7 +14,7 @@ export default defineNuxtConfig({
 	},
 	target: 'static',
 	css: ['vuetify/lib/styles/main.sass', '@mdi/font/css/materialdesignicons.min.css'],
-	plugins: ['plugins/vuetify.js', 'plugins/snackbars.ts'],
+	plugins: ['plugins/vuetify.js', 'plugins/snackbars.ts', 'plugins/sideEffect.ts'],
 	build: {
 		transpile: ['vuetify'],
 	},

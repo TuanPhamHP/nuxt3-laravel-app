@@ -2,6 +2,22 @@ $primary: #eaeaea;
 $secondary: #e4a79d;
 body {
 	background-color: #eaeaea;
+	overflow: hidden;
+	&::-webkit-scrollbar {
+		width: 0px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #d6d6d600;
+		border-radius: 5px;
+	}
+	&::-webkit-scrollbar-thumb {
+		border-radius: 6px;
+		background: #000;
+	}
+	*:not(i) {
+		font-size: 14px;
+	}
 	#snack-provider {
 		position: fixed;
 		bottom: 20px;
@@ -30,5 +46,14 @@ body {
 			background-color: rgba(58, 155, 220, 0.787);
 			color: #fff;
 		}
+	}
+	.pointer {
+		cursor: pointer !important;
+	}
+	.app-transition {
+		transition: 0.25s ease !important;
+	}
+	.v-checkbox .v-selection-control {
+		height: 40px !important;
 	}
 }
