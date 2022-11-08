@@ -8,10 +8,11 @@ export default defineNuxtConfig({
 	// 	assets: '/assets',
 	// 	public: '/public',
 	// },
-	ssr: false,
+	// ssr: false,
 	publicRuntimeConfig: {
 		API_BASE_URL: process.env.API_BASE_URL,
 	},
+	target: 'static',
 	css: ['vuetify/lib/styles/main.sass'],
 	plugins: ['plugins/vuetify.js', 'plugins/snackbars.ts'],
 	build: {
