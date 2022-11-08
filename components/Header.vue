@@ -6,8 +6,12 @@
 			<li v-if="useAuthStore.authUser" class="list-style-none d-block px-2">
 				Xin chào,{{ useAuthStore.authUser.name }}
 			</li>
-			<li v-if="!useAuthStore.authUser" class="list-style-none d-block px-2">Đăng nhập</li>
-			<li v-if="!useAuthStore.authUser" class="list-style-none d-block px-2">Đăng ký</li>
+			<NuxtLink v-if="!useAuthStore.authUser" to="/login" class="header-nav-item text-white">
+				<li class="list-style-none d-block px-2">Đăng nhập</li>
+			</NuxtLink>
+			<NuxtLink v-if="!useAuthStore.authUser" to="/register" class="header-nav-item text-white">
+				<li class="list-style-none d-block px-2">Đăng ký</li>
+			</NuxtLink>
 		</ul>
 	</div>
 </template>
@@ -35,5 +39,16 @@
 	.header-logo {
 		cursor: pointer;
 		height: 62px;
+	}
+	.header-nav-item {
+		text-decoration: unset;
+		height: 62px;
+		line-height: 62px;
+		min-width: 100px;
+		text-align: center;
+		transition: 0.25s ease;
+		&:hover {
+			background-color: #91969851;
+		}
 	}
 </style>

@@ -15,7 +15,6 @@
 					</tr>
 				</tbody>
 			</v-table>
-			<v-btn color="primary" dark @click="redirect('/login')">Login</v-btn>
 		</div>
 	</div>
 </template>
