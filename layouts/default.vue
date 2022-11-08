@@ -1,12 +1,16 @@
 <template>
-	<div>
-		Header
+	<v-app>
+		<Header />
 		<slot />
-	</div>
+	</v-app>
 </template>
-<!-- <style lang="scss">
-	@import url('../assets/styles/_colors.scss');
-</style> -->
+<script lang="ts">
+	// import '@mdi/font/css/materialdesignicons.css';
+	import Header from '@/components/Header.vue';
+	export default {
+		components: { Header },
+	};
+</script>
 <style lang="scss">
 	@import '/assets/styles/main.scss';
 </style>

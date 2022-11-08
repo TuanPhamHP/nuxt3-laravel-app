@@ -1,9 +1,14 @@
 <template>
 	<div>
-		<v-btn color="primary" dark @click="setLogin" :loading="loadingLogin">Set login</v-btn>
+		<div class="login-container mx-auto mt-0 mt-lg-6" style="max-width: 600px">
+			<v-text-field v-model="email" label="E-mail" required></v-text-field>
+			<v-text-field v-model="password" type="password" label="Password" required></v-text-field>
+			<v-btn color="primary" class="mx-auto d-block w-100" dark @click="setLogin" :loading="loadingLogin">Login</v-btn>
+		</div>
+		<!-- 
 		<v-btn color="primary" dark @click="getUserInfo" :loading="loadingLogin">get user</v-btn>
 		<v-btn color="primary" dark @click="$snackError('Hehehe')">Click me</v-btn>
-		<v-btn color="primary" dark @click="redirect('/')">Home</v-btn>
+		<v-btn color="primary" dark @click="redirect('/')">Home</v-btn> -->
 	</div>
 </template>
 
@@ -26,17 +31,20 @@
 			const useAuth = auth(runtimeConfig);
 			const useAuthStore = authStore();
 			const loadingLogin = ref(false);
+			const email = ref<string>('');
+			const password = ref<string>('');
+
 			const setLogin = async () => {
 				loadingLogin.value = true;
 				const body = {
-					email: 'email@gmail.com',
-					password: '1234567',
+					email: email.value,
+					password: password.value,
 				};
 				const res = await useAuth.loginUser(body);
 				console.log(res);
 				loadingLogin.value = false;
 
-				if (res.status >= 400) {
+				if (res.status >= 400 || res.status === -1) {
 					$snack(`Đăng nhập thất bại: ${JSON.stringify(res.data)}`, 'error');
 					return;
 				}
@@ -49,6 +57,7 @@
 					token: token,
 				});
 				$snack('Đăng nhập thành công', 'success');
+				router.push('/');
 			};
 			const getUserInfo = async () => {
 				await useAuth.getUserInfo().then(res => {
@@ -60,6 +69,8 @@
 			return {
 				loadingLogin,
 				router,
+				email,
+				password,
 				setLogin,
 				getUserInfo,
 			};
