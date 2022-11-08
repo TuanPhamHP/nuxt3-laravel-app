@@ -14,10 +14,6 @@
 	import { auth } from '@/services/index';
 	export default {
 		setup() {
-			definePageMeta({
-				middleware: ['auth'],
-				// or middleware: 'auth'
-			});
 			const { $snack } = useNuxtApp();
 
 			const runtimeConfig = useRuntimeConfig();
