@@ -20,8 +20,14 @@
 	</div>
 </template>
 <script lang="ts">
+	import { useRouter, useRoute } from 'vue-router';
 	export default {
-		setup() {},
+		setup() {
+			const router = useRouter();
+			return {
+				router,
+			};
+		},
 		head() {
 			return {
 				title: 'Chào bạn',
@@ -75,7 +81,7 @@
 		},
 		methods: {
 			redirect(url: string) {
-				this.$route.push(url);
+				this.router.push(url);
 			},
 		},
 	};

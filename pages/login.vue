@@ -59,6 +59,7 @@
 
 			return {
 				loadingLogin,
+				router,
 				setLogin,
 				getUserInfo,
 			};
@@ -73,7 +74,7 @@
 		},
 		methods: {
 			redirect(url: string) {
-				this.$route.push(url);
+				this.router.push(url);
 			},
 		},
 	};
